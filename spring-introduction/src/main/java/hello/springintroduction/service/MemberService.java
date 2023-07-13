@@ -5,11 +5,14 @@ import java.util.Optional;
 
 import hello.springintroduction.domain.Member;
 import hello.springintroduction.repository.MemberRepository;
-import hello.springintroduction.repository.MemoryMemberRepository;
 
 public class MemberService {
 
-	private final MemberRepository memberRepository = new MemoryMemberRepository();
+	private final MemberRepository memberRepository;
+
+	public MemberService(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
 
 	/**
 	 * 회원 가입
