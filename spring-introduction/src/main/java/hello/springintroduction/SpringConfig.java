@@ -1,21 +1,21 @@
 package hello.springintroduction;
 
-import javax.sql.DataSource;
+import javax.persistence.EntityManager;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import hello.springintroduction.repository.JdbcTemplateMemberRepository;
+import hello.springintroduction.repository.JpaMemberRepository;
 import hello.springintroduction.repository.MemberRepository;
 import hello.springintroduction.service.MemberService;
 
 @Configuration
 public class SpringConfig {
 
-	private final DataSource dataSource;
+	private final EntityManager em;
 
-	public SpringConfig(DataSource dataSource) {
-		this.dataSource = dataSource;
+	public SpringConfig(EntityManager em) {
+		this.em = em;
 	}
 
 	@Bean
@@ -27,6 +27,7 @@ public class SpringConfig {
 	public MemberRepository memberRepository() {
 		// return new MemoryMemberRepository();
 		// return new JdbcMemberRepository(dataSource);
-		return new JdbcTemplateMemberRepository(dataSource);
+		// return new JdbcTemplateMemberRepository(dataSource);
+		return new JpaMemberRepository(em);
 	}
 }
