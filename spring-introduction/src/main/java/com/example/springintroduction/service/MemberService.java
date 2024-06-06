@@ -5,11 +5,15 @@ import java.util.Optional;
 
 import com.example.springintroduction.domain.Member;
 import com.example.springintroduction.repository.MemberRepository;
-import com.example.springintroduction.repository.MemoryMemberRepository;
 
 public class MemberService {
 
-	private final MemberRepository memberRepository = new MemoryMemberRepository();
+	// 리포지토리가 서비스를 DI 가능하게 변경
+	private final MemberRepository memberRepository;
+
+	public MemberService(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
 
 	/**
 	 * 회원가입
