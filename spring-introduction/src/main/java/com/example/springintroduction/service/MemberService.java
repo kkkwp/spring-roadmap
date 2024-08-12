@@ -3,19 +3,14 @@ package com.example.springintroduction.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.example.springintroduction.domain.Member;
 import com.example.springintroduction.repository.MemberRepository;
 
-@Service
 public class MemberService {
 
 	// 리포지토리가 서비스를 DI 가능하게 변경
 	private final MemberRepository memberRepository;
 
-	@Autowired
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}
