@@ -3,9 +3,12 @@ package com.example.springintroduction.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.example.springintroduction.domain.Member;
 import com.example.springintroduction.repository.MemberRepository;
 
+@Transactional
 public class MemberService {
 
 	// 리포지토리가 서비스를 DI 가능하게 변경
